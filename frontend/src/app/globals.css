@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 96%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 96%;
+    --primary: 158 85% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 263 70% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 25% 22%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 263 70% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 58% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 96% 53%;
+    --warning-foreground: 222 47% 11%;
+    --border: 217 25% 26%;
+    --input: 217 33% 14%;
+    --ring: 158 85% 42%;
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 243 75% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 263 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 30% 93%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 263 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 152 52% 34%;
+    --success-foreground: 0 0% 100%;
+    --warning: 32 92% 44%;
+    --warning-foreground: 0 0% 100%;
+    --border: 214 20% 85%;
+    --input: 210 30% 96%;
+    --ring: 243 75% 50%;
+  }
+
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground antialiased; font-family: var(--font-manrope), 'Inter', system-ui, sans-serif; }
+  h1, h2, h3, h4, .font-display { font-family: var(--font-manrope), 'Inter', system-ui, sans-serif; }
+  .font-mono { font-family: var(--font-mono), 'JetBrains Mono', monospace; }
+}
+
+@layer components {
+  .grid-texture {
+    background-image: linear-gradient(hsl(var(--foreground) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .surface-card {
+    @apply rounded-lg border border-border bg-card shadow-sm transition-colors;
+  }
+  .surface-card-accent {
+    @apply surface-card border-mint/40 shadow-mint-glow;
+  }
+  .stat-grid-card {
+    @apply surface-card p-5;
+  }
+  .forge-hero {
+    @apply relative overflow-hidden;
+    background-color: #1E1E1E;
+    background-image: radial-gradient(ellipse at 20% 30%, rgba(10, 207, 131, 0.18) 0%, transparent 52%),
+      radial-gradient(ellipse at 80% 70%, rgba(93, 228, 176, 0.14) 0%, transparent 48%);
+  }
+  .data-table { @apply w-full text-sm; }
+  .data-table th { @apply border-b border-border px-4 py-3 text-left font-mono text-[11px] font-semibold uppercase tracking-wider text-muted-foreground; }
+  .data-table td { @apply border-b border-border/50 px-4 py-3; }
+  .data-table tbody tr:hover { @apply bg-muted/40; }
+  .skeleton { @apply animate-pulse rounded-md bg-muted; }
+  .input-field {
+    @apply flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/70 focus-visible:border-mint focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mint/30;
+  }
+  .kanban-column {
+    @apply flex min-h-[420px] w-72 shrink-0 flex-col rounded-xl border border-border bg-basalt-900/60;
+  }
+  .kanban-card {
+    @apply cursor-grab rounded-lg border border-border bg-card p-3 shadow-sm transition-shadow hover:border-mint/40 hover:shadow-mint-glow active:cursor-grabbing;
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+.next/
+coverage/
+*.log
+.vercel/
+frontend/.vercel
